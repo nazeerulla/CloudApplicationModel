@@ -1,0 +1,61 @@
+{
+    "odata": {
+        "version": "v4"
+    },
+    "build": {
+        "target": "gen",
+        "tasks": [
+            {
+                "src": "db",
+                "for": "hana",
+                "options": {
+                    "model": [
+                        "db",
+                        "srv"
+                    ]
+                }
+            },
+            {
+                "src": "srv",
+                "for": "node-cf",
+                "options": {
+                    "model": [
+                        "db",
+                        "srv"
+                    ]
+                }
+            },
+            {
+                "src": "app",
+                "for": "fiori",
+                "options": {
+                    "model": [
+                        "app"
+                    ]
+                }
+            }
+        ]
+    },
+    "auth": {
+        "passport": {
+            "strategy": "mock",
+            "users": {
+                "suppu": {
+                    "password": "123",
+                    "ID": "sup",
+                    "roles": [
+                        "admin",
+                        "authenticated-user"
+                    ]
+                },
+                "surya": {
+                    "password": "123",
+                    "ID": "sai",
+                    "roles": [
+                        "authenticated-user"
+                    ]
+                }
+            }
+        }
+    }
+}
